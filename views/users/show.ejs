@@ -1,0 +1,39 @@
+<%- include("../partials/header") %>
+
+<div class="row text-center">
+    <div class="col-md-4">
+        <img src="<%= user.avatar %>" alt="User Image" height="200px" width="200px">
+    </div>
+    <table class="table table-hover table-bordered text-center">
+        <tr>
+            <th>First Name</th>
+            <th><%= user.firstName %></th>
+        </tr>
+        <tr>
+            <th>Last Name</th>
+            <th><%= user.lastName %></th>
+        </tr>
+        <tr>
+            <th>Email</th>
+            <th><a href="mailto:<%= user.email%>"><%= user.email%></a></th>
+        </tr>
+        <tr>
+            <th>About User</th>
+            <th><%= user.aboutUser %></th>
+        </tr>
+        <tr>
+            <th>Tourist Spots.</th>
+            <th>
+                <ul>
+                    <% campgrounds.forEach(function(campground){ %>
+                        <li><a href="/campgrounds/<%= campground.id %>"><%= campground.name %></a></li>
+                <% }); %>
+            </ul> 
+            </th>
+        </tr>
+        
+    </table>
+</div>
+
+
+<%- include("../partials/footer") %>
